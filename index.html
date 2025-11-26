@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>Project C.Y.R.U.S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyan: {
+                400: '#00FFFF',
+                500: '#00E5E5',
+                900: '#003333',
+                950: '#001a1a',
+              }
+            },
+            fontFamily: {
+              mono: ['"Share Tech Mono"', 'monospace'],
+              sans: ['"Rajdhani"', 'sans-serif'],
+            },
+            animation: {
+              'spin-slow': 'spin 20s linear infinite',
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scanline': 'scanline 4s linear infinite',
+            },
+            keyframes: {
+              scanline: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000;
+        color: #00FFFF;
+        overflow: hidden;
+      }
+      .glass-panel {
+        background: rgba(0, 10, 10, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+      }
+      .text-glow {
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+      .grid-bg {
+        background-image: 
+          linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+      .clip-corner-br {
+        clip-path: polygon(
+          0 0, 
+          100% 0, 
+          100% calc(100% - 20px), 
+          calc(100% - 20px) 100%, 
+          0 100%
+        );
+      }
+      .fade-mask-y {
+        mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+      }
+      /* Custom Scrollbar for panels */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.5);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #00FFFF;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@mediapipe/tasks-vision": "https://aistudiocdn.com/@mediapipe/tasks-vision@^0.10.22-rc.20250304",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root" class="grid-bg w-full h-full absolute inset-0"></div>
+  </body>
+</html>
